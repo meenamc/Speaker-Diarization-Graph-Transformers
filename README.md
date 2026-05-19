@@ -1,6 +1,6 @@
 # Semi-Supervised Speaker Diarization with Graph Transformers and LLM-Based Segmentation
 
-This repository contains an implementation of a speaker diarization pipeline for naturalistic Apollo mission audio. The method combines word-level alignment, LLM-assisted speaker segmentation, multi-segmentation refinement, graph construction over speech segments, and a Graph Transformer network for speaker clustering.
+This repository contains an implementation of a speaker diarization pipeline for naturalistic Apollo mission audio. The method combines word-level alignment, LLM-based speaker segmentation, multi-segmentation refinement, graph construction over speech segments, and a Graph Transformer network for speaker clustering.
 
 ## Overview
 
@@ -9,7 +9,7 @@ The pipeline is designed for long-duration, multi-speaker communication audio wi
 Main components:
 
 - Word-level transcript alignment
-- LLM-assisted speaker-change labeling
+- LLM-based speaker-change labeling
 - Multi-segmentation refinement around word boundaries
 - Graph construction from segmented speech embeddings
 - Laplacian positional encodings for graph structure
@@ -34,24 +34,6 @@ configs/
 └── default.yaml           # Example configuration
 ```
 
-## Installation
-
-```bash
-pip install -e .
-```
-
-Install PyTorch and PyTorch Geometric versions compatible with your CUDA environment before training on GPU.
-
-## Training
-
-```bash
-python scripts/train.py \
-  --train-dir /path/to/graphs/Train \
-  --eval-dir /path/to/graphs/Eval \
-  --output-dir checkpoints \
-  --out-dim 276 \
-  --epochs 100
-```
 
 Graph files are expected to be PyTorch Geometric objects saved as:
 
@@ -70,7 +52,7 @@ Each graph should contain node features, graph edges, speaker labels, and option
 python scripts/cluster_embeddings.py \
   --embeddings embeddings.npy \
   --output cluster_labels.npy \
-  --threshold 0.65
+  --threshold xx
 ```
 
 ## Citation
