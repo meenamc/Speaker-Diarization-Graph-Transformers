@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "apollo-diarization-gt"
+version = "0.1.0"
+description = "Graph Transformer speaker diarization components for Apollo mission audio"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  {name = "Meena M. C. Shekar"}
+]
+dependencies = [
+  "numpy",
+  "scikit-learn",
+  "torch",
+  "torch-geometric",
+  "pyyaml"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
